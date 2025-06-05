@@ -1,0 +1,59 @@
+
+#include<stdio.h>   Header file library
+int main()
+{
+    printf("Hello world");
+    return 0;
+}
+\n newline character is an of escape sequence
+\t for tabs(Hello   world)
+\" To insert a double quotes character(hello" world)
+\\ To insert backslash character(hello\ world)
+
+//single line comments
+/* Multiline comments */
+C datatypes: int,float,char 
+
+Variable declaration:
+type variableName = value;
+int Num = 10;
+
+can also declare a variable without assigning the value, 
+and assign the value later:
+int num;
+num =10;
+
+Output
+printf("Output);
+
+Format specifiers: To tell the compiler what type of data 
+the variable is storing(basically placeholder)
+%d  int
+%c  char
+%f  float
+
+int num=10;
+printf("%d",num);
+
+int a=3;
+float b=3.14;
+char* c="Pi";
+printf("Value of a is %d, b is %f and c is %s end",a,b,c);
+
+initialization of 'char' from 'char *' makes integer from 
+pointer without a cast 
+char* c='Pi'; instead of char c='Pi';
+
+C data types
+Note: some data types size differs from system to system 
+32 bit system and 64 bit systems have different data sizes
+
+char 1byte(8bit)
+int  2 or 4bytes(16 or 32bit)
+float 4bytes(32 bit)
+double 8bytes(64 bit)
+
+int can be : 
+short or short int  :2bytes(16bit)
+int or long int :4bytes(32bit)
+long long int or long long :8 bytes(64bit)
