@@ -57,3 +57,28 @@ int can be :
 short or short int  :2bytes(16bit)
 int or long int :4bytes(32bit)
 long long int or long long :8 bytes(64bit)
+
+Baic format specifiers
+%d or %i    int
+%f or %F    float
+%lf         double
+%c          char
+%s          string 
+
+Note: ASCII characters can be used
+Eg:
+
+char a=65;
+printf("%c",a); Output will be A
+
+If you try to store more than one single character,
+only last character will be printed
+
+char myChar='Hello';
+printf("%c",myChar); Output will be o
+
+To store multiple characters  strings are used
+
+char mytext[] ="hello";
+printf("%s",mytext);
+
