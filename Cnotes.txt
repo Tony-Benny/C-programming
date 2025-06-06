@@ -82,3 +82,389 @@ To store multiple characters  strings are used
 char mytext[] ="hello";
 printf("%s",mytext);
 
+Numeric Data types include
+int float double
+float has a precision of 6 to 7 digits after decimal
+double has a precision of 15 digits
+
+Set decimal precision
+float myNum = 3e3; //3000
+printf("%f\n",myNum);
+printf("%.2f",myNum);
+
+Get the memory size
+
+int myInt;
+float myFloat;
+double myDoub;
+char myChar;
+printf("%zu\n",sizeof(myChar));
+printf("%zu\n",sizeof(myInt));
+printf("%zu\n",sizeof(myFloat));
+printf("%zu\n",sizeof(myDoub));
+
+Output:
+1
+4
+4
+8
+
+Type conversion
+Implicit conversion (automatically)
+
+float myNum = 9;
+myNum will be stored as a float 9.000000
+int myInt =3.754;
+myInt will be stored as integer 3
+
+Explicit conversion (manually)
+float sum=(float) 5/2;
+Here two integers are divided result is stored as float
+int num1 = 5;
+int num2 = 2;
+float sum = (float) num1/num2;
+
+C constants
+
+const float PI = 3.14;
+const keyword makes the data unchangeable and read-only
+when a constant is declared it must be assigned with a value 
+if not error will be raised
+
+C operators
+Arithmetic operators
+Assignment operators
+Comparison operators
+Logical operators
+Bitwise operators
+
+Arithmetic operators
++ - * /
+% modulus
+++ increment
+-- decrement
+
+Assignment operators
+ =  
+ +=
+ -=
+ *=
+ /=
+ %=
+ &=
+ |=
+ ^=
+ >>=
+ <<=
+
+x+=1;  x=x+1
+
+Comparison operators
+Return value of comparison is either true 1 or false 0
+==
+!=
+>
+<
+>=
+<=
+
+Logical operators
+&&
+||
+!
+
+x < 5 &&  x < 10; Returns true if both statements are true
+
+Boolean
+In C, the bool type is not a built-in data type,
+ like int or char.
+It was introduced in C99,
+ and you must import the following header file to use it:
+
+#include <stdbool.h>
+
+A boolean variable is declared with the bool keyword 
+and can take the values true or false:
+bool isProgrammingFun = true;
+bool isFishTasty = false;
+
+Before trying to print the boolean variables, 
+you should know that boolean values are returned as integers:
+1 (or any other number that is not 0) represents true
+0 represents false
+Therefore, you must use the %d format specifier 
+to print a boolean value
+
+If statement
+if (condition1) {
+  // block of code to be executed if condition1 is true
+} else if (condition2) {
+  // block of code to be executed if the condition1 is false and condition2 is true
+} else {
+  // block of code to be executed if the condition1 is false and condition2 is false
+}
+
+Ternary operator(shorthand if else)
+variable = (condition) ? expressionTrue : expressionFalse;
+
+if (time <18)
+{
+    printf("Good morning");
+}
+else
+{
+    printf("Good evening");
+}
+
+(time<18) ? printf("Good morning") : printf("Good evening");
+
+Number odd or even
+
+int x=5;
+if (x%2 == 0)
+{
+    printf("Even");
+}
+else
+{
+    printf("Odd");
+}
+
+(x%2 ==0) ? printf("Even"):printf("Odd");
+
+Switch statement
+Instead of writing many if else statements,
+switch statement can be used 
+
+    switch (expression)
+    {
+        case x:
+        //code
+        break;
+        code y:
+        //code
+        break;
+        default:
+        //code
+    }
+
+Switch expression is evaluated once
+Value of expression corresponds to each case 
+break statement breaks out of the switch block
+default block contains code to be run,if no case occurs
+
+int day = 100;
+    switch(day)
+    {
+        case 1:
+        printf("Monday");
+        break;
+        case 2:
+        printf("Tuesday");
+        break;
+        case 3:
+        printf("Wednesday");
+        break;
+        case 4:
+        printf("Thursday");
+        break;
+        case 5:
+        printf("Friday");
+        break;
+        case 6:
+        printf("saturday");
+        break;
+        default:
+        printf("Invalid day number");
+    }
+
+Loops
+while ,Do while,for loop
+
+While loop
+while (condition)
+{
+    //code
+}
+
+int i = 0;
+while(i<5)
+{
+    printf("%d\n",i);
+    i++;
+}
+
+Do while loop
+its a modification of while loop
+The code block will be executed once first,
+after which the condition is checked.If its true 
+code block will again executed untill condition is false
+
+do {
+    //code block
+}
+while (condition);
+The do/while loop always runs at least once, 
+even if the condition is already false. 
+This is different from a regular while loop,
+which would skip the loop entirely if the condition is false 
+at the start.
+
+Eg;
+    int number;
+    do
+    {
+        printf("Enter a positive number:");
+        scanf("%d",&number);
+    }
+    while(number<0);
+    printf("%d",number);
+
+If we want  a certain kind of user input,we could use do while
+as in the above code where anything other than positive number
+is rejected
+
+Reverse a number using while loop
+    int number =12345;
+    int reverse=0;
+    while(number)
+    {
+        reverse=(reverse*10)+(number%10);
+        number/=10;
+    }
+    printf("%d",reverse);
+
+For loop
+used when we know exactly how many times we want to loop 
+through a block of code
+for (initialization;condition;in/decrement)
+{
+    //code block
+}
+print numbers from 1 to 5
+    int i;
+    for (i=1;i<6;i++)
+    {
+        printf("%d\n",i);
+    }
+
+Break and continue
+
+break and continue in for loop
+break statement let the program control break out the loop
+continue statement breaks one iteration
+
+Eg:
+    int i;
+    for (i=1;i<6;i++)
+    {
+        if(i==3)
+        {
+            continue;
+        }
+        if(i==4)
+        {
+            break;
+        }
+        printf("%d\n",i);
+
+    }
+Output:
+1
+2
+
+int i=0;
+    while (i<10)
+    {
+        if (i==5)
+        {
+            i++; // if i is not incremented,infinite loop
+            continue;
+        }
+        if (i==7)
+        {
+            break;
+        }
+        printf("%d\n",i);
+        i++;
+    }
+
+output:
+0
+1
+2
+3
+4
+6
+
+Arrays
+
+To create an Arrays
+datatype Name[]={val1,val2...};
+    int nums[] = {1,2,3,4,5};
+To access a element,use index
+    printf("%d",nums[0]); //1
+To change array element
+    nums[2] = 30;
+To loop through an array
+    int nums[] = {10,20,30};
+    for (int i=0;i<3;i++)
+    {
+        printf("%d\n",nums[i]);
+    }
+
+Also array can be declared first and then elements can be added
+
+int myArr[3];
+myArr[0]=10;
+myArr[1]=30;
+myArr[2]=20;
+
+Arrays always have same datatype
+
+sizeof
+
+int Num[3]={10,20,30};
+printf("%zu",sizeof(Num)); Output will be 12
+
+sizeof gives total size 
+ie 12 bytes is total size of Num  (3 elements * 4bytes)
+
+sizeof can be used to get better Loops
+
+    int Num[3]={10,20,30};
+    int length=sizeof(Num)/sizeof(Num[0]);
+    for (int i=0;i<length;i++)
+    {
+       printf("%d\n",Num[i]);
+    }
+
+Multidimensional Arrays
+(array of arrays)
+
+Two dimensional array is matrix
+
+int matrix[2][3] = {{1, 4, 3}, {2, 6, 8}}
+
+        column0     column1     column2
+row 0       1           4           3
+
+row 1       2           6           8
+
+To acces a specific element     matrix[row][column]
+
+   int mat[2][3] = {{1,2,3},{4,5,6}};  //2D Array definition
+   printf("%d\n",mat[0][0]);           //Accessing element
+   mat[0][0] = 0;                      //changing element
+   printf("%d\n",mat[0][0]);
+
+Looping through 2D array
+   int mat[2][3] = {{1,2,3},{4,5,6}};
+   for(int i=0;i<2;i++)
+   {
+      for(int j=0;j<3;j++)
+      {
+         printf("%d\t",mat[i][j]);
+      }
+   }
+
