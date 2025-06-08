@@ -468,3 +468,99 @@ Looping through 2D array
       }
    }
 
+C strings
+C doesn't have a String type to easily create string variables
+So char is used to create an array of characters 
+
+char greetings[] = "Hello";
+printf("%s", greetings);
+
+Accessing strings
+
+printf("%c", greetings[0]);
+
+Modify strings
+greetings[4] = 'u';
+
+Looping through strings
+
+char str[] = "String";
+for(int i=0; i<6;i++)
+{
+    printf("%c\n", str[i]);
+}
+
+or
+
+   char str[] = "String";
+   int length  = sizeof(str)
+   for(int i=0; i<length;i++)
+   {
+      printf("%c\n", str[i]);
+   }
+
+Another way of creating strings
+
+   char greetings[] = {'H', 'e', 'l', 'l', 'o', '\0'};
+   printf("%s", greetings);
+
+\0 character at the end is called null terminating character
+
+C special characters
+
+\'      Used to include single quote in strings
+\"      Used to include double quotes in strings
+\\      Used to include backslash in strings
+\n      newline
+\t      tab
+\0      Null
+
+String functions
+
+To use certain string functions we should include string.h header file
+Eg strlen() function gives length of a string
+Difference between strlen and sizeof is 
+sizeof includes \0 null character while strlen gives number of char in string
+
+   char txt[] = "Hello";
+   printf("%zu\n",strlen(txt)); // 5
+   printf("%zu\n",sizeof(txt)); // 6
+
+Also sizeof gives memory size in bytes and strlen gives number of characters
+
+   char txt[50] = "Hello";
+   printf("%zu\n",strlen(txt)); // 5
+   printf("%zu\n",sizeof(txt)); // 50
+
+String Concatenation
+strcat() function is used to concatenate two strings
+Result stored in first string
+Memory of first string should be large enough to accomodate both strings
+
+
+   char str1[20] ="Hello "; // 20 bytes allocated
+   char str2[] = "World";
+   strcat(str1,str2);
+   printf("%s",str1);
+
+Copy strings
+strcpy() 
+   char str1[20];
+   char str2[20] = "Hello";
+   strcpy(str1,str2);
+   printf("%s",str1);
+
+ size of str1 should be large enough to store the copied string
+
+ Compare strings
+ strcmp()
+ Returns 0 if two strings are equal
+   char str1[] ="Hello";
+   char str2[] ="Hello";
+   char str3[20] ="Hello";
+   char str4[] ="hello";
+   char str5[]="Hi there";
+   printf("%d\n",strcmp(str1,str2)); // 0
+   printf("%d\n",strcmp(str1,str3)); // 0
+   printf("%d\n",strcmp(str1,str4)); // -1
+   printf("%d\n",strcmp(str1,str5)); // -1
