@@ -564,3 +564,114 @@ strcpy()
    printf("%d\n",strcmp(str1,str3)); // 0
    printf("%d\n",strcmp(str1,str4)); // -1
    printf("%d\n",strcmp(str1,str5)); // -1
+
+User input
+
+scanf() takes two arguments:format specifier of the variable(%d) 
+and the reference operator (&num)
+
+   int num;
+   printf("Enter number:");
+   scanf("%d",&num);
+   printf("Number is %d",num);
+
+Multiple inputs
+
+   int num;
+   char letter;
+   printf("Enter number and letter:");
+   scanf("%d %c", &num, &letter);
+   printf("Number is %d and letter is %c", num, letter);
+
+String input
+scanf() 
+1.considers white space as terminating character
+for eg:if you enter first name space last name, only first name will be taken
+2.Size of the string/array must be specified(in the eg, a higher nnumber(30) is used
+to accommodate any possibly long names)
+3.Reference operator & doesnot have to be used
+
+   char name[30];
+   printf("Enter name:");
+   scanf("%s",name);
+   printf("Name:%s",name);
+
+   output:
+   Enter name:August Walker
+   Name:August
+
+fgets()
+When working with strings fgets() function is used to read a line of text
+fgets(string_variable_name, sizeof(string_variable_name), stdin)
+
+   char name[30];
+   printf("Enter name:");
+   fgets(name,sizeof(name),stdin);
+   printf("Name:%s",name);
+
+   output:
+   Enter name:August Walker
+   Name:August Walker
+
+scanf() To get single word
+fgets() To get multiple word
+
+C memory address
+memory address is the location assigned to a variable
+To access it, refernece operator (&) is used 
+   float num=3.2145;
+   printf("%p",&num); //00000000005ffe98
+
+&num is often called a pointer
+%p is the format specifier use for pointers
+
+Pointers 
+A pointer is a variable that stores the memory address 
+of another variable as its value
+
+   int number = 10;         //Variable declaration
+   int *ptr = &number;      //Pointer declaration
+   printf("%d\n",number);   //10
+   printf("%p\n",&number);  //00000000005ffe94
+   printf("%p\n",ptr);      //00000000005ffe94
+   printf("%d\n",*ptr);     //10 Dereference
+
+1.In the eg, ptr is the pointer variable that points to 
+ an integer variable "number".
+2.A pointer variable points to a data type (like int)
+ of the same type, and is created with the * operator.
+3.ampersand & operator is used to store the memory address
+ of the "number" variable and assign it to a pointer
+4.ptr holds the value of "number"'s address
+
+Dereference
+* (asterisk) is the deference operator used to dereference to the 
+actual data value
+
+* symbol acts in two different ways Here
+1. it is used for declaring pointer variable 
+    int *ptr;
+    int* ptr; //Both are same
+2.When not used in declaration,it acts as a dereference operator
+
+Pointers and Arrays
+
+Name of an array is actuallly a pointer to the first element 
+of the array
+
+Memory address of the first element is same as the name of the array
+
+   int myNums[4] = {1,2,3,4};
+   printf("%p\n",myNums);
+   printf("%p\n",&myNums[0]);
+output:
+00000000005ffe90
+00000000005ffe90
+
+before using pointers,inorder to access and display elements 
+of an array we used for loops to loop through the array
+By using pointers we can easily access array
+
+myNums is basically pointing to the first element of myNums
+Dereference it, and we get first element
+
