@@ -668,10 +668,211 @@ output:
 00000000005ffe90
 00000000005ffe90
 
-before using pointers,inorder to access and display elements 
-of an array we used for loops to loop through the array
 By using pointers we can easily access array
 
 myNums is basically pointing to the first element of myNums
 Dereference it, and we get first element
 
+   int myNums[4] = {1,2,3,4};
+   printf("%p\n",myNums);
+   printf("%d\n",*myNums);
+out:
+00000000005ffe90
+1
+
+To access rest of the elements of the array,
+increment the pointer
+
+   int myNums[]={1,2,3,4};
+   printf("%d\n",*(myNums+1));  // 2
+
+or loop through it
+
+   int myNums[4] = {1,2,3,4};
+   for(int i=0;i<4;i++)
+   {
+      printf("%d\n",*(myNums+i));
+   }
+
+or
+   int myNumbers[4] = {25, 50, 75, 100};
+   int *ptr = myNumbers;
+   int i;
+   for (i = 0; i < 4; i++) {
+    printf("%d\n", *(ptr + i));
+    }
+
+Modifying array using pointers
+
+   int myNums[4] = {1,2,3,4};
+   *myNums = 10;
+   *(myNums+1) = 20;
+   for(int i=0;i<4;i++)
+   {
+      printf("%d\n",*(myNums+i));
+   }
+output:
+10
+20
+3
+4
+
+C functions
+returnType functionName(parameter1, parameter2, parameter3) {
+  // code to be executed
+}
+Different values given as parameters are called arguments
+
+#include<stdio.h>
+void hello(char name[])
+{
+   printf("Hello %s",name);
+}
+int main()
+{
+   hello("John");
+}
+#include<stdio.h>
+void sum(int x,int y)
+{
+   printf("%d\n",x+y);
+}
+int main()
+{
+   sum(10,2);
+}
+name is parameter and john is argument
+x and y are parameters, 10 and 2 are arguments
+
+Passing arrays as paramater
+
+void func(int array[5])
+{
+   for (int i=0;i<5;i++)
+   {
+      printf("%d\n",array[i]);
+   }
+}
+int main()
+{
+   int numList[] = {10,20,30,40,50};
+   func(numList);
+}
+
+Return values can be int ,float etc If void ,no return value
+
+int sum(int x,int y)
+{
+   return x+y;
+}
+int main()
+{
+   int result = sum(10,20);
+   printf("%d\n",result);
+}
+
+Variable scope
+
+Local scope:A variable defined inside a function can only 
+be used inside the function.It has local scope
+Global scope:A variable defined outside a function has global scope
+It can be used both globally and locally
+
+int x=5;
+int func()
+{
+   int x=22;
+   printf("%d\n",x);
+}
+int main()
+{
+   func(x);             //22
+   printf("%d\n",x);`   //5
+}
+
+Structure of C program(Best practice)
+
+int sum(int x,int y);         //Function Declaration
+int main()
+{
+   printf("%d\n",sum(1,2));   //Function Call
+}
+int sum(int x,int y)          //Function Definition
+{
+   return x+y;
+}
+
+C Recursion
+
+Recursion is the technique of making a function call itself
+The idea is to break down a complex problem into simpler problems
+
+Program to find sum upto n;
+int sum(int n);         
+int main()
+{
+   printf("%d\n",sum(5));   
+}
+int sum(int n)
+{
+   if(n>0)
+   {
+      return n + sum(n-1);
+   }
+   else
+   {
+      return 0;
+   }
+}
+
+//sum(5)
+//5 + sum(4)
+//5 + 4 + sum(3)
+//5 + 4 + 3 + sum(2)
+//5 + 4 + 3 + 2 + sum(1)
+//5 + 4 + 3 + 2 + 1 + sum(0)
+//5 + 4 + 3 + 2 + 1 + 0
+//15
+
+C math functions
+#include<math.h>
+
+sqrt()  square root
+pow()   power
+ceil()  Rounds a number upwards to its nearest integer
+floor() Rounds a number downwards to its nearest integer
+
+C File Handling 
+
+FILE *fptr;
+fptr = fopen("filename.txt", "w");
+fclose(fptr);
+
+FILE is basically a datatype
+fptr is pointer Variable
+fopen is the function that opens the file
+If the file specified doesn't exist, it will be created
+fopen takes two arguments 
+1. filename or fiename with root
+Eg fptr = fopen("C:\\directoryname\\filename.txt", "w");
+2. Mode 
+w - Writes to a file
+a - Appends new data to a file
+r - Reads from a file
+
+Opened file should be closed before the program ends - fclose()
+
+Writing to a file
+
+fprintf() erases the existing content and writes the new one
+   FILE *fptr;
+   fptr = fopen("file.txt","w");
+   fprintf(fptr,"this is  a file");
+   fclose(fptr);
+
+Append content to a file
+
+   FILE *fptr;
+   fptr = fopen("file.txt","a");  // mode a fpr appending
+   fprintf(fptr,"Second line appended");
+   fclose(fptr);
