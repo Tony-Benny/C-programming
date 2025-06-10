@@ -873,6 +873,55 @@ fprintf() erases the existing content and writes the new one
 Append content to a file
 
    FILE *fptr;
-   fptr = fopen("file.txt","a");  // mode a fpr appending
+   fptr = fopen("file.txt","a");  // mode "a" fpr appending
    fprintf(fptr,"Second line appended");
    fclose(fptr);
+
+Reading a file
+
+   FILE *fptr;
+   fptr = fopen("file.txt","r");
+   char content[100];
+   fgets(content,100,fptr);
+   printf("%s",content);
+   fclose(fptr);
+
+By the above program only first line of can be read.
+To read full lines, a while loop can be used
+   FILE *fptr;
+   fptr = fopen("file.txt","r");
+   char content[100];
+   while (fgets(content,100,fptr))
+   {
+      printf("%s",content);
+   }
+   fclose(fptr);
+
+Good practice
+If a file that doesn't exist is opened using fopen(),
+fopen will return Null
+Therefore fopen(),check if the file exist
+
+   FILE *fptr;
+   fptr = fopen("filethatdoesn'texist.txt","r");
+   if(fptr==NULL)
+   {
+      printf("File doesn't exist");
+   }
+
+Open a file and read it
+   FILE *file1;
+   file1 = fopen("file.txt","r");
+   char content[100];
+   if(file1 != NULL)
+   {
+      while(fgets(content,100,file1))
+      {
+         printf("%s",content);
+      }
+   }
+   else
+   {
+      printf("File cannot be opened");
+   }
+   fclose(file1);
