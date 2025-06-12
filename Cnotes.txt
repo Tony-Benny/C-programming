@@ -925,3 +925,116 @@ Open a file and read it
       printf("File cannot be opened");
    }
    fclose(file1);
+
+C Structures
+Structures (also called structs) are a way to group several 
+related variables into one place.
+Each variable in the structure is known as a member of the 
+structure.
+Unlike an array, a structure can contain many different 
+data types 
+
+Creating Structure
+struct Keyword is used
+
+struct Mystructure{
+   int num;
+   char letter;
+};
+
+To access a struct, a struct variable is created inside the main function
+
+struct Mystructure{   
+   int num;
+   char letter;
+};
+int main()
+{
+   struct Mystructure s1;
+   return 0;
+}
+Stucture members can be accessed using .
+
+struct myStructure      //structure creation
+{
+   int num;
+   char letter;
+};
+int main()
+{
+   struct myStructure s1;     //Structure variable
+   struct myStructure s2;
+   s1.num = 10;               //Assigning values to members
+   s1.letter = 'a';
+   s2.num = 20;
+   s2.letter = 'b';
+   printf("First number is %d",s1.num);
+}
+
+Use strcpy() to assign the value to strings
+
+struct myStructure
+{
+   int num;
+   char letter;
+   char str[30];
+};
+int main()
+{
+   struct myStructure s1;
+   strcpy(s1.str,"string");
+   printf("the string is %s",s1.str);
+}
+
+Simpler syntax
+You can also assign values to members of a structure variable 
+at declaration time, in a single line.
+Just insert the values in a comma-separated list inside
+curly braces {}. Note that you don't have to use the
+strcpy() function for string values with this technique
+
+struct myStruct
+{
+   int num;
+   char letter;
+   char str[30];
+};
+int main()
+{
+   struct myStruct s1 = {10,'a',"string"};
+   printf("%d %c %s",s1.num,s1.letter,s1.str);
+}
+Copy struct
+struct myStruct s1 = {10,'a',"String"};
+struct myStruct s2;
+s2 = s1;
+
+to Modify values . can be used
+
+s1.num = 30;
+
+Struct is a way to store multiple values of different data
+ types
+
+C unions
+Union can store members of different data types
+In union all members share the same memory,Therefore
+you can only use one of the values at a time 
+
+union myUnion {
+   int num;
+   char letter;
+};
+int main()
+{
+   union myUnion u1;
+   u1.num =10;
+   printf("%d %c",u1.num,u1.letter);      //10
+   u1.letter = 'a';
+   printf("%d %c",u1.num,u1.letter);      //97 a
+}
+Since all members share the smae memory, changing one will 
+affect the others.Only the last assigned member holds a valid value
+In the example above after letter is assigned value, num value became invalid and unreliable
+
+Size of a union is always the same as the size of its largest member
