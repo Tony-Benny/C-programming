@@ -1038,3 +1038,82 @@ affect the others.Only the last assigned member holds a valid value
 In the example above after letter is assigned value, num value became invalid and unreliable
 
 Size of a union is always the same as the size of its largest member
+
+C enumeration
+enum is used to represent a group of constants
+enum keyword is used to define enumerations
+
+enum Level
+{
+   LOW,
+   MEDIUM,
+   HIGH
+};
+
+To access enum, a variable is used
+
+enum Level myVar;
+or
+enum Level myVar = MEDIUM;
+
+By default the first item has value 0, second has 1 ...
+
+printf("%d",myVar); output: 1
+
+Values associated with enum can be changed
+
+enum Level
+{
+   LOW = 25,
+   MEDIUM = 50,
+   HIGH = 75
+};
+int main()
+{
+   enum Level myVar = MEDIUM;
+   printf("%d",myVar);
+}
+
+Also, if you assign a specific value to an item ,other item's value also change accordingly
+1.
+enum Level
+{
+   LOW = 25,
+   MEDIUM,     //26
+   HIGH        //27
+};
+
+2.
+#include<stdio.h>
+enum Level
+{
+   LOW,
+   MEDIUM = 50,
+   HIGH
+};
+int main()
+{
+   enum Level low =LOW;
+   enum Level med =MEDIUM;
+   enum Level hig =HIGH;
+   printf("%d %d %d",low,med,hig);
+}
+Out:
+0 50 51
+
+Use enums when you have values that you know aren't going to
+change, like month days, days, colors, deck of cards, etc.
+
+C memory management
+
+Memory in C 
+char letter;
+int num1;
+float num2;
+double num3;
+int main()
+{
+   printf("%zu %zu %zu %zu",sizeof(letter),sizeof(num1),sizeof(num2),sizeof(num3));
+}
+
+1 4 4 8
